@@ -3,7 +3,10 @@
 import pandas as pd
 
 class EmployeeProcessor:
-    def process_employee(self, df, employee_id):
+    def get_employee_by_id(self, df, employee_id):
+        if employee_id not in df['employeeid'].values:
+            return None
+        
         employee_data = df[df['employeeid'] == employee_id].iloc[0]
         return Employee(employee_data)
 
@@ -30,7 +33,7 @@ if __name__ == "__main__":
     df = pd.DataFrame(data)
 
     processor = EmployeeProcessor()
-    employee = processor.process_employee(df, 2)
+    employee = processor.get_employee_by_id(df, 2)
 
     print(f"Employee ID: {employee.employee_id}")
     print(f"Name: {employee.name}")

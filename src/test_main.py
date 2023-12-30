@@ -10,14 +10,14 @@ class TestEmployeeProcessor(unittest.TestCase):
         self.df = pd.DataFrame(data)
         self.processor = EmployeeProcessor()
 
-    def test_process_employee_1(self):
-        employee = self.processor.process_employee(self.df, 1)
+    def test_get_employee_by_id(self):
+        employee = self.processor.get_employee_by_id(self.df, 1)
         self.assertEqual(employee.employee_id, 1)
         self.assertEqual(employee.name, 'Alice')
         self.assertEqual(employee.salary, 50000)
 
     def test_process_non_existing_employee(self):
-        employee = self.processor.process_employee(self.df, 4)
+        employee = self.processor.get_employee_by_id(self.df, 4)
         self.assertIsNone(employee)  # Espera que sea None para un employee_id que no existe
 
     def test_filter_employees_by_salary(self):
