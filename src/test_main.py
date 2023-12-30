@@ -13,10 +13,12 @@ class TestEmployeeProcessor(unittest.TestCase):
         self.processor = EmployeeProcessor()
 
     def test_create_employee(self):
-        employee = Employee(1, 'John Doe', 50000)
+        employee_data = {'employee_id': 1, 'name': 'John Doe', 'salary': 50000}
+        employee = Employee(employee_data)
         self.assertEqual(employee.employee_id, 1)
         self.assertEqual(employee.name, 'John Doe')
         self.assertEqual(employee.salary, 50000)
+
 
     def test_get_employee_by_id(self):
         employee = self.processor.get_employee_by_id(self.df, 1)
