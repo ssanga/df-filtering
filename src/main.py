@@ -10,6 +10,10 @@ class EmployeeProcessor:
     def filter_employees_by_salary(self, df, min_salary):
         filtered_data = df[df['salary'] > min_salary]
         return [Employee(row) for _, row in filtered_data.iterrows()]
+    
+    def query_data(self, df, condition):
+        queried_data = df.query(condition)
+        return [Employee(row) for _, row in queried_data.iterrows()]
 
 class Employee:
     def __init__(self, data):
