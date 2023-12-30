@@ -1,15 +1,22 @@
 import unittest
 import pandas as pd
-from main import EmployeeProcessor
+from employee import Employee
+from employee_processor import EmployeeProcessor
 
 class TestEmployeeProcessor(unittest.TestCase):
     def setUp(self):
-        data = {'employeeid': [1, 2, 3],
+        data = {'employee_id': [1, 2, 3],
                 'name': ['Alice', 'Bob', 'Charlie'],
                 'salary': [50000, 60000, 70000],
                 'departmentid': [101, 102, 103]}
         self.df = pd.DataFrame(data)
         self.processor = EmployeeProcessor()
+
+    def test_create_employee(self):
+        employee = Employee(1, 'John Doe', 50000)
+        self.assertEqual(employee.employee_id, 1)
+        self.assertEqual(employee.name, 'John Doe')
+        self.assertEqual(employee.salary, 50000)
 
     def test_get_employee_by_id(self):
         employee = self.processor.get_employee_by_id(self.df, 1)
