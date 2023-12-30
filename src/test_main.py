@@ -6,7 +6,8 @@ class TestEmployeeProcessor(unittest.TestCase):
     def setUp(self):
         data = {'employeeid': [1, 2, 3],
                 'name': ['Alice', 'Bob', 'Charlie'],
-                'salary': [50000, 60000, 70000]}
+                'salary': [50000, 60000, 70000],
+                'departmentid': [101, 102, 103]}
         self.df = pd.DataFrame(data)
         self.processor = EmployeeProcessor()
 
