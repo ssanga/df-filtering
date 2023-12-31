@@ -70,3 +70,4 @@ jobs:
   #         -Dsonar.tests=tests \
   #         -Dsonar.host.url=https://sonarcloud.io \
   #         -Dsonar.login=$SONAR_TOKEN  # Set your SonarCloud token as a secret in your GitHub repository
+  #         -Dsonar.python.coverage.reportPaths=coverage.xml
