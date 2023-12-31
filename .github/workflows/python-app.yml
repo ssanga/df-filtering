@@ -58,8 +58,8 @@ jobs:
     - name: SonarCloud Scan
       run: |
         sonar-scanner \
-          -Dsonar.projectKey=<your-sonarcloud-project-key> \
-          -Dsonar.organization=<your-sonarcloud-organization> \
+          -Dsonar.projectKey=ssanga_df-filtering \
+          -Dsonar.organization=ssanga \
           -Dsonar.sources=src \
           -Dsonar.tests=tests \
           -Dsonar.host.url=https://sonarcloud.io \
