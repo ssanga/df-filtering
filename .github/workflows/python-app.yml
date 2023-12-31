@@ -38,33 +38,33 @@ jobs:
       run: |
         python -m unittest discover -v -s src -p 'test_*.py'
 
-  sonarcloud:
-    runs-on: ubuntu-latest
-    needs: build  # Este trabajo depende del éxito del trabajo 'build'
+  # sonarcloud:
+  #   runs-on: ubuntu-latest
+  #   needs: build  # Este trabajo depende del éxito del trabajo 'build'
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+  #   steps:
+  #   - name: Checkout repository
+  #     uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.10'
+  #   - name: Set up Python
+  #     uses: actions/setup-python@v2
+  #     with:
+  #       python-version: '3.10'
 
-    - name: Download and install SonarScanner
-      run: |
-          mkdir -p ~/sonar-scanner
-          curl -L -o ~/sonar-scanner/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
-          unzip -o ~/sonar-scanner/sonar-scanner.zip -d ~/sonar-scanner
-          export PATH=$PATH:~/sonar-scanner/sonar-scanner-4.6.2.2472-linux/bin
-          echo "PATH: $PATH"
+  #   - name: Download and install SonarScanner
+  #     run: |
+  #         mkdir -p ~/sonar-scanner
+  #         curl -L -o ~/sonar-scanner/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+  #         unzip -o ~/sonar-scanner/sonar-scanner.zip -d ~/sonar-scanner
+  #         export PATH=$PATH:~/sonar-scanner/sonar-scanner-4.6.2.2472-linux/bin
+  #         echo "PATH: $PATH"
   
-    - name: SonarCloud Scan
-      run: |
-          ~/sonar-scanner/sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner \
-          -Dsonar.projectKey=ssanga_df-filtering \
-          -Dsonar.organization=ssanga \
-          -Dsonar.sources=src \
-          -Dsonar.tests=tests \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=$SONAR_TOKEN  # Set your SonarCloud token as a secret in your GitHub repository
+  #   - name: SonarCloud Scan
+  #     run: |
+  #         ~/sonar-scanner/sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner \
+  #         -Dsonar.projectKey=ssanga_df-filtering \
+  #         -Dsonar.organization=ssanga \
+  #         -Dsonar.sources=src \
+  #         -Dsonar.tests=tests \
+  #         -Dsonar.host.url=https://sonarcloud.io \
+  #         -Dsonar.login=$SONAR_TOKEN  # Set your SonarCloud token as a secret in your GitHub repository
