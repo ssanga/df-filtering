@@ -25,7 +25,7 @@ if __name__ == "__main__":
     df_departments = pd.DataFrame(department_data)
 
     # Unir los DataFrames utilizando merge
-    df_merged = pd.merge(df_employees, df_departments, on='department_id')
+    df_merged = pd.merge(df_employees, df_departments, on='department_id', how="inner", validate="1:1")
 
     # Mostrar el DataFrame resultante
     print(df_merged)
