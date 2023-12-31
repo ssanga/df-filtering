@@ -61,7 +61,7 @@ jobs:
   
     - name: SonarCloud Scan
       run: |
-        sonar-scanner \
+          ~/sonar-scanner/sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner \
           -Dsonar.projectKey=ssanga_df-filtering \
           -Dsonar.organization=ssanga \
           -Dsonar.sources=src \
